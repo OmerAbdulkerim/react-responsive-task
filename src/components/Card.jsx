@@ -5,7 +5,6 @@ const Card = ({ title, imageUrl, description, index }) => {
     return (
         <Grid
             item
-            mini={12}
             mobile={6}
             tablet={4}
             pc={12 / 5}
@@ -13,12 +12,17 @@ const Card = ({ title, imageUrl, description, index }) => {
             display={"flex"}
             flexDirection={"column"}>
             <div className='card-container'>
+                <div className="full-image">
+                    <img src={imageUrl} alt="Full Cover"/>
+                </div>
                 <div className='card-upper-part'>
                     <div className='image-container'>
                         <img src={imageUrl} alt='CARD PROFILE' />
                     </div>
                     <div className='text-container'>
-                        <h2>{title}</h2>
+                        <div className='table-div'>
+                            <h2>{title}</h2>
+                        </div>
                         <p>{description}</p>
                     </div>
                 </div>
