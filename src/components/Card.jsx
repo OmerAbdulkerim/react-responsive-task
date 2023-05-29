@@ -1,43 +1,32 @@
 import "./card.scss";
+import { Grid } from "@mui/material";
 
 const Card = ({ title, imageUrl, description, index }) => {
     return (
-        <div
-            className='card-container'
-            style={{
-                textAlign: "start",
-                display: "flex",
-                flexDirection: "column",
-                border: "1px black solid",
-                width: "100%",
-                margin: "auto",
-                padding: "1rem",
-            }}>
-            <img
-                src={imageUrl}
-                alt='CARD PROFILE'
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    border: "1px solid green",
-                }}
-            />
-            <br />
-            <h2 style={{ fontWeight: 300 }}>{title}</h2>
-            <p style={{ fontWeight: 300 }}>{description}</p>
-
-            <span
-                style={{
-                    textAlign: "center",
-                    border: "1px solid black",
-                    borderRadius: "50%",
-                    width: "30px",
-                    lineHeight: "30px",
-                    display: "table",
-                    margin: "0 auto",
-                }}>{`${index}.`}</span>
-        </div>
+        <Grid
+            item
+            mini={12}
+            mobile={6}
+            tablet={4}
+            pc={12 / 5}
+            key={index}
+            display={"flex"}
+            flexDirection={"column"}>
+            <div className='card-container'>
+                <div className='card-upper-part'>
+                    <div className='image-container'>
+                        <img src={imageUrl} alt='CARD PROFILE' />
+                    </div>
+                    <div className='text-container'>
+                        <h2>{title}</h2>
+                        <p>{description}</p>
+                    </div>
+                </div>
+                <div className='card-footer'>
+                    <span className='footer-span'>{`${index}.`}</span>
+                </div>
+            </div>
+        </Grid>
     );
 };
 
